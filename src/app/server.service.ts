@@ -21,6 +21,9 @@ export class ServerService {
     return this.http.get('https://angular4-http-4c6ed.firebaseio.com/serverdata.json').map(
       (response: Response) => {
         const data = response.json();
+        for (let item of data) {
+          item.name = 'FETCHED_' + item.name;
+        }
         return data;
       }
     );

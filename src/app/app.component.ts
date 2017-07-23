@@ -45,7 +45,10 @@ export class AppComponent implements OnInit {
 
   onGetServer() {
     this.serverService.getServers().subscribe(
-      (servers: any[]) => console.log(servers), error => console.log(error)
+      (servers: any[]) => {
+        console.log(servers);
+        this.servers = servers;
+      }, error => console.log(error)
     );
   }
 
