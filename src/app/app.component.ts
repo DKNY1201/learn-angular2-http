@@ -7,14 +7,10 @@ import {Response} from "@angular/http";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
+export class AppComponent {
+  appName = this.serverService.getAppName();
 
-  }
-
-  constructor(private serverService: ServerService) {
-
-  }
+  constructor(private serverService: ServerService) {}
   servers = [
     {
       name: 'Testserver',

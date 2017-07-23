@@ -19,7 +19,7 @@ export class ServerService {
   }
 
   getServers() {
-    return this.http.get('https://angular4-http-4c6ed.firebaseio.com/')
+    return this.http.get('https://angular4-http-4c6ed.firebaseio.com/serverdata.json')
       .map((response: Response) => {
         const data = response.json();
         for (let item of data) {
@@ -31,5 +31,12 @@ export class ServerService {
       // return Observable.throw(error);
       return Observable.throw('Something went wrong');
     });
+  }
+
+  getAppName() {
+    return this.http.get('https://angular4-http-4c6ed.firebaseio.com/appName.json')
+      .map((response: Response) => {
+        return response.json();
+      });
   }
 }
