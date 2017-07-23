@@ -1,12 +1,15 @@
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Headers, Http} from "@angular/http";
 
 @Injectable()
 export class ServerService {
   constructor(private http: Http) {}
 
   storeServers(servers: any[]) {
+    const headers = new Headers({'Content-Type': 'application/json'});
     // return an Observable
-    return this.http.post('https://angular4-http-4c6ed.firebaseio.com/serverdata.json', servers);
+    return this.http.post('https://angular4-http-4c6ed.firebaseio.com/serverdata.json'
+      , servers
+      , {headers: headers} );
   }
 }
