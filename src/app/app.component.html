@@ -7,6 +7,8 @@
       <ul class="list-group" *ngFor="let server of servers">
         <li class="list-group-item">{{ server.name }} (ID: {{ server.id }})</li>
       </ul>
+      <hr>
+      <button class="btn btn-primary" (click)="onSaveServer()">Save Server</button>
     </div>
   </div>
 </div>

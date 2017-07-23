@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ServerService} from "./server.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+
+  }
+
+  constructor(private serverService: ServerService) {
+
+  }
   servers = [
     {
       name: 'Testserver',
@@ -25,6 +33,15 @@ export class AppComponent {
       id: this.generateId()
     });
   }
+
+  onSaveServer() {
+    this.serverService.storeServers(this.servers)
+      .subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    );
+  }
+
   private generateId() {
     return Math.round(Math.random() * 10000);
   }
