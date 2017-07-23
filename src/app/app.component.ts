@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ServerService} from "./server.service";
+import {Response} from "@angular/http";
 
 @Component({
   selector: 'app-root',
@@ -39,6 +40,14 @@ export class AppComponent implements OnInit {
       .subscribe(
       response => console.log(response),
       error => console.log(error)
+    );
+  }
+
+  onGetServer() {
+    this.serverService.getServers().subscribe(
+      (response: Response) => {
+        console.log(response.json());
+      }, error => console.log(error)
     );
   }
 
