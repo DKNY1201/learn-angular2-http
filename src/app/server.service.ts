@@ -8,7 +8,10 @@ export class ServerService {
   storeServers(servers: any[]) {
     const headers = new Headers({'Content-Type': 'application/json'});
     // return an Observable
-    return this.http.post('https://angular4-http-4c6ed.firebaseio.com/serverdata.json'
+    // return this.http.post('https://angular4-http-4c6ed.firebaseio.com/serverdata.json'
+    //   , servers
+    //   , {headers: headers} );
+    return this.http.put('https://angular4-http-4c6ed.firebaseio.com/serverdata.json'
       , servers
       , {headers: headers} );
   }
